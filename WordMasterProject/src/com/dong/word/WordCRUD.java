@@ -1,11 +1,36 @@
 package com.dong.word;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class WordCRUD implements ICRUD {
+	ArrayList<Word> list;
+	Scanner s ; 
+	/*
+	 * => 난이도(1,2,3) & 새 단어 입력 :1 driveway
+	 * 뜻 입력 :차고 진입로
+	 * 새 단어가 단어장에 추가되었습니다.
+	 */
+	
+	WordCRUD(Scanner s){
+		list = new ArrayList<>();
+		this.s = s;
+	}
 
 	@Override
 	public Object add() {
-		// TODO Auto-generated method stub
+		System.out.print("-> 난이도(1,2,3) & 새 단어 입력 :");
+		int level = s.nextInt();
+		String word = s.next();
+
+		System.out.print("뜻 입력 : ");
+		String meaning = s.nextLine();
+
 		return null;
+	}
+	
+	public void addWord() {
+		
 	}
 
 	@Override
