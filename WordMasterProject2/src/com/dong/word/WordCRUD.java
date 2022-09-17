@@ -94,6 +94,18 @@ public class WordCRUD implements ICRUD {
 		System.out.println("----------------------------");
 		return idlist;
 	}
+	public void listAll(int level) {
+		int j = 0;
+		System.out.println("----------------------------");
+		for(int i =0; i < list.size(); i++) {
+			int ilevel = list.get(i).getLevel();
+			if(ilevel != level) continue;
+			System.out.print((j+1)+" ");
+			System.out.println(list.get(i).toString());
+			j++;
+		}
+		System.out.println("----------------------------");
+	}
 	
 	public void updateItem() {
 		System.out.print("=> 수정할 단어 검색 : ");
@@ -163,7 +175,7 @@ public class WordCRUD implements ICRUD {
 
 	public void saveFile() {
 		try {
-			PrintWriter pr = new PrintWriter(new FileWriter("test.txt"));
+			PrintWriter pr = new PrintWriter(new FileWriter(fname));
 			for(Word one : list) {
 				pr.write(one.toFileString() + "\n");
 			}
@@ -176,5 +188,19 @@ public class WordCRUD implements ICRUD {
 			e.printStackTrace();
 		}
 		
+	}
+
+	public void searchLevel() {
+		
+		System.out.print("=> 원하는 레벨은? (1~3)");
+		int level = s.nextInt();
+		listAll(level);
+	}
+
+	public void searchWord() {
+		
+		System.out.print("=> 원하는 단어는? ");
+		String keyword = s.next();
+		listAll(keyword);
 	}
 }
