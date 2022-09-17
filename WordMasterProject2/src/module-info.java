@@ -5,5 +5,5 @@
  * @author Master
  *
  */
-module WordMasterProject {
+module WordMasterProject2 {
 }
