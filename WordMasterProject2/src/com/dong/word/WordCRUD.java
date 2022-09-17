@@ -2,7 +2,9 @@ package com.dong.word;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -160,7 +162,17 @@ public class WordCRUD implements ICRUD {
 	}
 
 	public void saveFile() {
-		// TODO Auto-generated method stub
+		try {
+			PrintWriter pr = new PrintWriter(new FileWriter("test.txt"));
+			for(Word one : list) {
+				pr.write(one,toFileString() + "\n");
+			}
+			
+			pr.close();
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
 		
 	}
 }
